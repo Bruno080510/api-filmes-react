@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Movie, MovieList, Btn } from "./style";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Filmes() {
     const imagePath = "https://image.tmdb.org/t/p/w500";
 
     const [movies, setMovies] = useState([]);
@@ -39,4 +39,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Filmes;
