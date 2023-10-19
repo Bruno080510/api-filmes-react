@@ -15,9 +15,7 @@ const Navbar = () => {
                     <Link to="/filmes" className="p-3">
                         <a className="px-7 p-3 bg-[#1DDA63] rounded-xl">Movies</a>
                     </Link>
-                    <Link to="/series" className="p-3">
-                        <a className="px-7 p-3 bg-[#1DDA63] rounded-xl">Series</a>
-                    </Link>
+                    
                 </div>
                 <div>
                     <h1 className="font-extrabold pe-7">putaa</h1>

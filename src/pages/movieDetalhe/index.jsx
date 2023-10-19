@@ -5,6 +5,8 @@ import "./styles.css";
 import {BsFillCalendarDateFill} from 'react-icons/bs'
 import {AiFillStar} from 'react-icons/ai'
 import {BiTimeFive} from 'react-icons/bi'
+import {MdChevronLeft, MdChevronRight} from "react-icons/md"
+
 
 const Movie = () => {
     const { id } = useParams();
@@ -33,22 +35,32 @@ const Movie = () => {
           setRecommendedMovies(filmes);
         });
     }, [id, KEY])
+
+    const slideLeft = () => {
+        let slider = document.getElementById('slider')
+        slider.scrollLeft = slider.scrollLeft + 200
+    }
+
+    const slideRight = () => {
+        let slider = document.getElementById('slider')
+        slider.scrollLeft = slider.scrollLeft - 200
+    }
   
 
     return (
         <div className="flex flex-row justify-beetwen">
             <img
-                className=" h-[680px] pe-5 w-[800px]  rounded"
+                className=" h-screen pe-5 w-[800px]  rounded"
                 src={`${imagePath}${movie.poster_path}`}
                 alt={movie.title}
             />
-            <div className=" pt-16">
+            <div className=" pt-5">
                 <h1 className="text-4xl font-bold">{movie.title}</h1>
                
-                <div className=" text-xl pt-4 font-mono pe-6">
+                <div className=" text-lg pt-4 font-mono pe-6">
                     <p className="">Descrição: {movie.overview}</p>
                 </div>
-                <div className="pt-2 flex items-center text-xl  flex-row">
+                <div className="pt-0.5 flex items-center text-xl  flex-row">
                         <div className=" text-yellow-500">
                             <AiFillStar/>
                         </div>
@@ -67,26 +79,26 @@ const Movie = () => {
                 </div>
                 </div>
                 
-                <h2>Filmes Recomendados:</h2>
-        <div className=" relative flex items-center">
-                <ul>
-                {recommendedMovies.length > 0 && recommendedMovies.map((movie, number) => (
-            <Link to={`/movie/${movie.id}`} key={movie.id}>
-                
-                <div className="pb-8 pt-5 ps-7 w-[300px] h-[450px] pe-8 cursor-pointer hover:scale-105 ease-in-out duration-300 inline-block">
-                <h1 className="text-lg ps-3">{number + 1}</h1>
-                <img
-                    className="w-full h-80 rounded-xl"
-                    src={`${imagePath}${movie.poster_path}`}
-                    alt={movie.title}
-                />
+                <h2 className="pt-4 text-xl">Filmes Recomendados:</h2>
+                <div className="flex flex-row items-center">
+                <MdChevronLeft className="opacity-50 cursor-pointer hover:opacity-100" onClick={slideRight} size={40}/>
+                    <div id="slider" className="w-full scrollbar-hide overflow-x-auto whitespace-nowrap">
+                        {recommendedMovies.length > 0 && recommendedMovies.map((movie) => (
+                            <Link to={`/${movie.id}`} key={movie.id}>
+                                <div className="inline-block pr-4">
+                                    <img
+                                        className="h-60 w-40 rounded cursor-pointer hover:scale-105 transition-transform duration-300"
+                                        src={`${imagePath}${movie.poster_path}`}
+                                        alt={movie.title}
+                                    />
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                    <MdChevronRight className="opacity-50 cursor-pointer hover:opacity-100" onClick={slideLeft} size={40}/>
                 </div>
-            </Link>
-            ))}
-                </ul>
-         </div>
       <Link to="/">
-        <button className="bg-red-500 p-3 px-5 rounded font-bold">Voltar</button>
+        <button className="bg-red-500 p-3 px-5 rounded  font-bold">Voltar</button>
       </Link>
             </div>
         </div>
