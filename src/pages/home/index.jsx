@@ -63,8 +63,6 @@ function Home() {
             </div>
             <div>
                 <FilmesHome />
-                <FilmesHome />
-                <FilmesHome />
             </div>
         </div>
     );

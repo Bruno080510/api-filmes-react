@@ -18,7 +18,7 @@ const Navbar = () => {
                     
                 </div>
                 <div>
-                    <h1 className="font-extrabold pe-7">putaa</h1>
+                    <h1 className="font-extrabold pe-7">pesquisar</h1>
                 </div>
             </nav>
   );
