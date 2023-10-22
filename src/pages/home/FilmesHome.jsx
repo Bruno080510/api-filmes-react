@@ -27,11 +27,11 @@ function FilmesHome() {
 
     const [film, setFilm] = useState([]);
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${KEY}&language=pt-BR&with_genres=27
+        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${KEY}&language=pt-BR&with_genres=27&include_adult=false&include_video=false&sort_by=popularity.desc&vote_average.gte=0&vote_count.gte=1000
         `)
             .then((response) => response.json())
             .then((data) => {
-                const terror = data.results.slice(0, 10);
+                const terror = data.results.slice(10, 20);
 
                 setFilm(terror);
             });
@@ -49,25 +49,6 @@ function FilmesHome() {
 
     return (
         <div>
-            <h1 className=" text-3xl ps-7 font-semibold  ">10s today</h1>
-            <div className=" relative flex items-center" >
-                <MdChevronLeft className="opacity-50 cursor-pointer hover:opacity-100" onClick={slideRight} size={40}/>
-                |<div id="slider" className="scrollbar-hide w-full h-full overflow-x-scroll  overflow-y-hidden scroll whitespace-nowrap scroll-smooth">     
-                    {movies && movies.length > 0 && movies.map((movie) => {
-                        return (
-                            <Link to={`/${movie.id}`}>
-                            <div className=" pt-5 ps-7 w-[300px] h-[450px] pe-8 cursor-pointer hover:scale-105 ease-in-out duration-300  inline-block" key={movie.id}>
-                                <img className=" w-full h-80 rounded-xl"
-                                    src={`${imagePath}${movie.poster_path}`}
-                                    alt={movie.title}
-                                />
-                                </div>
-                            </Link>
-                        );
-                    })}
-                </div>
-                <MdChevronRight className="opacity-50 cursor-pointer hover:opacity-100" onClick={slideLeft} size={40}/>
-            </div >
             <div>
             <h1 className=" text-3xl ps-7 font-semibold  ">Terror</h1>
             <div className=" relative flex items-center" >
@@ -89,6 +70,27 @@ function FilmesHome() {
                 <MdChevronRight className="opacity-50 cursor-pointer hover:opacity-100" onClick={slideLeft} size={40}/>
             </div >
         </div>
+
+
+<h1 className=" text-3xl ps-7 font-semibold  ">10s today</h1>
+<div className=" relative flex items-center" >
+    <MdChevronLeft className="opacity-50 cursor-pointer hover:opacity-100" onClick={slideRight} size={40}/>
+    |<div id="slider" className="scrollbar-hide w-full h-full overflow-x-scroll  overflow-y-hidden scroll whitespace-nowrap scroll-smooth">     
+        {movies && movies.length > 0 && movies.map((movie) => {
+            return (
+                <Link to={`/${movie.id}`}>
+                <div className=" pt-5 ps-7 w-[300px] h-[450px] pe-8 cursor-pointer hover:scale-105 ease-in-out duration-300  inline-block" key={movie.id}>
+                    <img className=" w-full h-80 rounded-xl"
+                        src={`${imagePath}${movie.poster_path}`}
+                        alt={movie.title}
+                    />
+                    </div>
+                </Link>
+            );
+        })}
+    </div>
+    <MdChevronRight className="opacity-50 cursor-pointer hover:opacity-100" onClick={slideLeft} size={40}/>
+</div >
         </div>
 
         

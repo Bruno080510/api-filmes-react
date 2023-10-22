@@ -12,10 +12,7 @@ const Navbar = () => {
                     <h1 className="ps-6 font-extrabold">Telefy</h1>
                 </div>
                 <div className="flex items-center font-bold">
-                    <Link to="/filmes" className="p-3">
-                        <a className="px-7 p-3 bg-[#1DDA63] rounded-xl">Movies</a>
-                    </Link>
-                    
+               
                 </div>
                 <div>
                     <h1 className="font-extrabold pe-7">pesquisar</h1>
