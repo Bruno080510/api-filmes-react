@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Container, Movie, MovieList, Btn } from "../filmes/style";
 import { Link } from "react-router-dom";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 

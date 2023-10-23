@@ -57,7 +57,7 @@ const Movie = () => {
             <div className=" pt-5">
                 <h1 className="text-4xl font-bold">{movie.title}</h1>
                
-                <div className=" text-lg pt-4 font-mono pe-6">
+                <div className=" text-lg pt-4 font-medium pe-6">
                     <p className="">Descrição: {movie.overview}</p>
                 </div>
                 <div className="pt-0.5 flex items-center text-xl  flex-row">
