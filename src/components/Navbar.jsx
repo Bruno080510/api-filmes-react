@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IoHomeOutline, IoPersonOutline, IoChatbubbleOutline } from 'react-icons/io5';
 import {BiCameraMovie} from 'react-icons/bi'
 import {PiTelevisionSimpleBold} from 'react-icons/pi'
+import {AiOutlineSearch} from 'react-icons/ai'
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -14,9 +15,12 @@ const Navbar = () => {
                 <div className="flex items-center font-bold">
                
                 </div>
-                <div>
-                    <h1 className="font-extrabold pe-7">pesquisar</h1>
-                </div>
+                <Link to={'/search'}>
+                  <div className="font-extrabold  cursor-pointer pe-7">
+                    <AiOutlineSearch size={30}/>
+                  </div>
+                </Link>
+                
             </nav>
   );
 }

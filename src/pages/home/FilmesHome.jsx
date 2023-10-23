@@ -40,7 +40,7 @@ function Filmes({ title, genero }) {
           `https://api.themoviedb.org/3/discover/movie?api_key=${KEY}&language=pt-BR&with_genres=${genero}&include_adult=false&include_video=false&sort_by=popularity.desc&vote_average.gte=0&vote_count.gte=1000`
         );
         const data = await response.json();
-        setFilm(data.results.slice(10, 20));
+        setFilm(data.results.slice(0, 20));
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
       }
